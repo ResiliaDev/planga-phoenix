@@ -39,7 +39,9 @@ defmodule PlangaPhoenix.MixProject do
       files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
         license* CHANGELOG* changelog* src),
       licenses: ["Apache 2.0"],
-      links: %{"GitHub" => "https://github.com/ResiliaDev/planga-phoenix"}
+      links: %{"Planga Homepage" => "https://www.planga.io",
+               "GitHub" => "https://github.com/ResiliaDev/planga-phoenix"
+      }
     ]
   end
 end
