@@ -9,6 +9,7 @@ defmodule PlangaPhoenix.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: package(),
+      description: description(),
     ]
   end
 
@@ -43,5 +44,9 @@ defmodule PlangaPhoenix.MixProject do
                "GitHub" => "https://github.com/ResiliaDev/planga-phoenix"
       }
     ]
+  end
+
+  defp description() do
+    "Easy usage of the Planga Seamless Chat Service inside an Elixir+Phoenix application."
   end
 end
