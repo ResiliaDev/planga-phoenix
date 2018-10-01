@@ -25,7 +25,7 @@ defmodule PlangaPhoenix.MixProject do
     [
       {:phoenix_html, "~> 2.12"},
       {:jose, "~> 1.8"},
-      {:poison, "~> 4.0"},
+      {:poison, "~> 3.0"},
       {:vex, "~> 0.8.0"},
       {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev},
