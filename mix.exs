@@ -10,6 +10,8 @@ defmodule PlangaPhoenix.MixProject do
       deps: deps(),
       package: package(),
       description: description(),
+      source_url: "https://github.com/ResiliaDev/planga-phoenix",
+      homepage_url: "https://www.planga.io",
     ]
   end
 
