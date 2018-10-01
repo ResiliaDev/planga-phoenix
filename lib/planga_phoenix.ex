@@ -6,6 +6,10 @@ defmodule PlangaPhoenix do
   require Phoenix.HTML.Tag
   require Vex
 
+  @doc """
+  Given the correct configuration options,
+  creates a HTML snippet that can be included in your application's HTML output.
+  """
   def chat(options) do
     {:ok, options} = validate_options(options)
 
@@ -13,7 +17,7 @@ defmodule PlangaPhoenix do
       options
       |> Map.put_new(:other_users, [])
 
-    encrypted_info = encrypted_conversation_info(
+    encrypted_info = encrypted_config(
       options.private_api_key,
       options.conversation_id,
       options.current_user,
@@ -42,7 +46,12 @@ defmodule PlangaPhoenix do
     ]
   end
 
-  defp encrypted_conversation_info(private_api_key, conversation_id, current_user = %{id: _, name: _}, other_users) when is_list(other_users) do
+  @doc """
+  Given the correct configuration options,
+  creates a string representation of the encrypted options.
+  This is useful only for advanced use-cases, in which you want to create the Planga HTML snippet yourself.
+  """
+  def encrypted_config(private_api_key, conversation_id, current_user = %{id: _, name: _}, other_users) when is_list(other_users) do
     decoded_privkey = JOSE.JWK.from_map(%{"k" => private_api_key, "kty" => "oct"})
     inspect decoded_privkey
     priv_data =
