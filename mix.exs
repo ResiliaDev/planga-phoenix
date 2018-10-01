@@ -37,7 +37,7 @@ defmodule PlangaPhoenix.MixProject do
   defp package() do
     [
       # These are the default files included in the package
-      files: ~w(lib priv .formatter.exs mix.exs README* readme* src),
+      files: ~w(lib .formatter.exs mix.exs README* ),
       licenses: ["Apache 2.0"],
       links: %{"Planga Homepage" => "https://www.planga.io",
                "GitHub" => "https://github.com/ResiliaDev/planga-phoenix"

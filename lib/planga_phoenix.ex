@@ -29,16 +29,16 @@ defmodule PlangaPhoenix do
       Phoenix.HTML.Tag.content_tag(:script, "", src: "#{options.server_location}/js/js_snippet.js"),
       Phoenix.HTML.Tag.content_tag(:div, "", id: options.container_id),
       Phoenix.HTML.Tag.content_tag(:script,
-          Phoenix.HTML.raw """
-          window.onload = function(){
-          new Planga(document.getElementById("#{Phoenix.HTML.escape_javascript(options.container_id)}"),
-          {
-            public_api_id: "#{Phoenix.HTML.escape_javascript(options.public_api_id)}",
-            encrypted_options: "#{Phoenix.HTML.escape_javascript(encrypted_info)}",
-            socket_location: "#{options.server_location}/socket",
-          });
-          };
-          """)
+        Phoenix.HTML.raw """
+        window.onload = function(){
+        new Planga(document.getElementById("#{Phoenix.HTML.escape_javascript(options.container_id)}"),
+        {
+        public_api_id: "#{Phoenix.HTML.escape_javascript(options.public_api_id)}",
+        encrypted_options: "#{Phoenix.HTML.escape_javascript(encrypted_info)}",
+        socket_location: "#{options.server_location}/socket",
+        });
+        };
+        """)
     ]
   end
 
@@ -60,22 +60,21 @@ defmodule PlangaPhoenix do
   end
 
   defp validate_options(options) do
-    with
-      [] <- Vex.errors(options, %{
-            :public_api_id => [presence: true, format: ~r/[a-zA-Z]+/],
-            :private_api_key => [presence: true, format: ~r/[a-zA-Z]+/],
-            :conversation_id => [presence: true],
-            :current_user => [presence: true],
-                       })
-      [] <- Vex.errors(options.current_user, %{
-            id: [presence: true],
-            name: [presence: true]
-                       })
-        do
-        {:ok, options}
-    else
-      errors ->
-        {:error, errors}
+    with [] <- Vex.errors(options, %{
+                  :public_api_id => [presence: true, format: ~r/[a-zA-Z]+/],
+                  :private_api_key => [presence: true, format: ~r/[a-zA-Z]+/],
+                  :conversation_id => [presence: true],
+                  :current_user => [presence: true],
+                          }),
+         [] <- Vex.errors(options.current_user, %{
+               id: [presence: true],
+               name: [presence: true]
+                          })
+      do
+      {:ok, options}
+      else
+        errors ->
+          {:error, errors}
     end
   end
 end
