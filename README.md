@@ -1,6 +1,6 @@
 # PlangaPhoenix
 
-**TODO: Add description**
+Elixir+Phoenix integration for Planga, the Seamless Chat Service
 
 ## Installation
 
