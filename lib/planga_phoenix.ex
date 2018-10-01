@@ -1,6 +1,6 @@
 defmodule PlangaPhoenix do
   @moduledoc """
-  Easy usage of Planga inside Elixir+Phoenix applications.
+  Easy usage of the Planga Seamless Chat Service inside an Elixir+Phoenix application.
   """
 
   require Phoenix.HTML.Tag
