@@ -15,7 +15,10 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/planga_phoenix](https://hexdocs.pm/planga_phoenix).
+The docs can be found at [https://hexdocs.pm/planga_phoenix](https://hexdocs.pm/planga_phoenix).
+
+## CHANGELOG
+
+- 1.0.0 Stable released version. Adds option for `include_stylesheet`.
+- 0.1.0 First released version
 
