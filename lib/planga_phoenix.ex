@@ -49,7 +49,7 @@ defmodule PlangaPhoenix do
 
     if options.include_stylesheet do
       stylesheet_tag =
-        Phoenix.HTML.Tag.content_tag(:link, "", rel: "#{options.server_location}/css/chat-style-basic.css"),
+        Phoenix.HTML.Tag.content_tag(:link, "", rel: "#{options.server_location}/css/chat-style-basic.css")
       [stylesheet_tag | result_html_list]
     else
       result_html_list
