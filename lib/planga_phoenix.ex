@@ -16,6 +16,7 @@ defmodule PlangaPhoenix do
     options =
       options
       |> Map.put_new(:other_users, [])
+      |> Map.put_new(:include_stylesheet, "#{options.server_location}/css/chat-style-basic.css")
 
     encrypted_info = encrypted_config(
       options.private_api_key,
@@ -29,21 +30,30 @@ defmodule PlangaPhoenix do
       |> Map.put_new(:server_location, "chat.planga.io")
       |> Map.put_new(:container_id, "planga-chat-#{Phoenix.HTML.escape_javascript(encrypted_info)}")
 
-    [
-      Phoenix.HTML.Tag.content_tag(:script, "", src: "#{options.server_location}/js/js_snippet.js"),
-      Phoenix.HTML.Tag.content_tag(:div, "", id: options.container_id),
-      Phoenix.HTML.Tag.content_tag(:script,
-        Phoenix.HTML.raw """
-        window.onload = function(){
-        new Planga(document.getElementById("#{Phoenix.HTML.escape_javascript(options.container_id)}"),
-        {
-        public_api_id: "#{Phoenix.HTML.escape_javascript(options.public_api_id)}",
-        encrypted_options: "#{Phoenix.HTML.escape_javascript(encrypted_info)}",
-        socket_location: "#{options.server_location}/socket",
-        });
-        };
-        """)
-    ]
+    result_html_list =
+      [
+        Phoenix.HTML.Tag.content_tag(:script, "", src: "#{options.server_location}/js/js_snippet.js"),
+        Phoenix.HTML.Tag.content_tag(:div, "", id: options.container_id),
+        Phoenix.HTML.Tag.content_tag(:script,
+          Phoenix.HTML.raw """
+          window.onload = function(){
+          new Planga(document.getElementById("#{Phoenix.HTML.escape_javascript(options.container_id)}"),
+          {
+          public_api_id: "#{Phoenix.HTML.escape_javascript(options.public_api_id)}",
+          encrypted_options: "#{Phoenix.HTML.escape_javascript(encrypted_info)}",
+          socket_location: "#{options.server_location}/socket",
+          });
+          };
+          """)
+      ]
+
+    if options.include_stylesheet do
+      stylesheet_tag =
+        Phoenix.HTML.Tag.content_tag(:link, "", rel: "#{options.server_location}/css/chat-style-basic.css"),
+      [stylesheet_tag | result_html_list]
+    else
+      result_html_list
+    end
   end
 
   @doc """
