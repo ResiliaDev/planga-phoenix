@@ -4,7 +4,7 @@ defmodule PlangaPhoenix.MixProject do
   def project do
     [
       app: :planga_phoenix,
-      version: "1.0.0",
+      version: "1.0.1",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -25,7 +25,7 @@ defmodule PlangaPhoenix.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix_html, "~> 2.12"},
+      {:phoenix_html, "~> 2.9"},
       {:jose, "~> 1.8"},
       {:poison, "~> 3.0"},
       {:vex, "~> 0.8.0"},
