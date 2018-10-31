@@ -19,6 +19,7 @@ The docs can be found at [https://hexdocs.pm/planga_phoenix](https://hexdocs.pm/
 
 ## CHANGELOG
 
+- 1.0.1 Loosen version bounds for `phoenix_html`.
 - 1.0.0 Stable released version. Adds option for `include_stylesheet`.
 - 0.1.0 First released version
 
