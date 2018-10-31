@@ -16,7 +16,7 @@ defmodule PlangaPhoenix do
     options =
       options
       |> Map.put_new(:other_users, [])
-      |> Map.put_new(:server_location, "chat.planga.io")
+      |> Map.put_new(:server_location, "https://chat.planga.io")
 
     encrypted_info = encrypted_config(
       options.private_api_key,
