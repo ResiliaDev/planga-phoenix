@@ -4,7 +4,7 @@ defmodule PlangaPhoenix.MixProject do
   def project do
     [
       app: :planga_phoenix,
-      version: "1.0.7",
+      version: "1.0.8",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
