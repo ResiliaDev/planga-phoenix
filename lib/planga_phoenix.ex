@@ -26,9 +26,8 @@ defmodule PlangaPhoenix do
 
     options =
       options
-      |> Map.put_new(:other_users, [])
-      |> Map.put_new(:include_stylesheet, "#{options.server_location}/css/chat-style-basic.css")
       |> Map.put_new(:server_location, "chat.planga.io")
+      |> Map.put_new(:include_stylesheet, "#{options.server_location}/css/chat-style-basic.css")
       |> Map.put_new(:container_id, "planga-chat-#{Phoenix.HTML.escape_javascript(encrypted_info)}")
 
     result_html_list =
