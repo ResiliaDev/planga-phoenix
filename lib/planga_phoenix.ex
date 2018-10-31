@@ -13,6 +13,10 @@ defmodule PlangaPhoenix do
   def chat(options) do
     {:ok, options} = validate_options(options)
 
+    options =
+      options
+      |> Map.put_new(:other_users, [])
+
     encrypted_info = encrypted_config(
       options.private_api_key,
       options.conversation_id,
