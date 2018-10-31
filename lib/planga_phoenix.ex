@@ -13,11 +13,6 @@ defmodule PlangaPhoenix do
   def chat(options) do
     {:ok, options} = validate_options(options)
 
-    options =
-      options
-      |> Map.put_new(:other_users, [])
-      |> Map.put_new(:include_stylesheet, "#{options.server_location}/css/chat-style-basic.css")
-
     encrypted_info = encrypted_config(
       options.private_api_key,
       options.conversation_id,
@@ -27,6 +22,8 @@ defmodule PlangaPhoenix do
 
     options =
       options
+      |> Map.put_new(:other_users, [])
+      |> Map.put_new(:include_stylesheet, "#{options.server_location}/css/chat-style-basic.css")
       |> Map.put_new(:server_location, "chat.planga.io")
       |> Map.put_new(:container_id, "planga-chat-#{Phoenix.HTML.escape_javascript(encrypted_info)}")
 
