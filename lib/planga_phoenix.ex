@@ -68,7 +68,8 @@ defmodule PlangaPhoenix do
       %{
         conversation_id: conversation_id,
         current_user_id: current_user.id,
-        current_user_name: current_user.name
+        current_user_name: current_user.name,
+        current_user_role: current_user[:role]
       }
       |> Poison.encode!()
 
